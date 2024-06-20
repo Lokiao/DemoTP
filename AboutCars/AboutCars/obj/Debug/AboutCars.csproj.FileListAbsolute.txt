@@ -1,6 +1,0 @@
-C:\Users\solda\RiderProjects\AboutCars\AboutCars\bin\Debug\AboutCars.exe
-C:\Users\solda\RiderProjects\AboutCars\AboutCars\bin\Debug\AboutCars.pdb
-C:\Users\solda\RiderProjects\AboutCars\AboutCars\obj\Debug\AboutCars.csproj.AssemblyReference.cache
-C:\Users\solda\RiderProjects\AboutCars\AboutCars\obj\Debug\AboutCars.csproj.CoreCompileInputs.cache
-C:\Users\solda\RiderProjects\AboutCars\AboutCars\obj\Debug\AboutCars.exe
-C:\Users\solda\RiderProjects\AboutCars\AboutCars\obj\Debug\AboutCars.pdb
