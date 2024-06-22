@@ -7,6 +7,9 @@ namespace AboutCars
     {
         public string LicenseNumber { get; set; }
 
+        public string MaxSpeed { get; set; }
+        
+        public string Acceleration { get; set; }
         //stats about the cars like maxspeed / accel and turn rate
         public string Brand { get; set; }
 

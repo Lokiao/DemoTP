@@ -135,4 +135,4 @@ _NCrunch*
 # Normal gitignore
 *.obj
 *.bin
-*.idea
+.idea
