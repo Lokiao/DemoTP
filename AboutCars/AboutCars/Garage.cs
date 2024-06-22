@@ -41,16 +41,15 @@ namespace AboutCars
         /// If you do not mess this one up, you should be able to participate in some races with his cars.
         /// </summary>
         /// <param name="cars">The list of the different cars</param>
-        /// <param name="nbOfTurns">The number of turns in the race</param>
-        /// <param name="kmBtwEachTurn">List of the length of the straight lines between each turn</param>
+        /// <param name="track">The track where the race will happen</param>
         /// <returns>
         /// The best car for the race
         /// </returns>
         /// <remarks>
         /// We suppose that during a turn, each car goes at 80km/h (not gradually).
-        /// After a turn, the speed of each gradually reaches their maximum speed.
+        /// After a turn, the speed of each gradually reaches their maximum speed (if possible).
         /// </remarks>
-        public static Car FindBestCar(Car[] cars, int nbOfTurns, double[] kmBtwEachTurn)
+        public static Car FindBestCar(Car[] cars, Track track)
         {
             throw new NotImplementedException();
         }
