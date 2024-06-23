@@ -45,7 +45,7 @@ namespace AboutCars
         public abstract override string ToString();
         
         /// <summary>
-        /// Willy the garagist wants to add new personnalized features to this car.
+        /// Willy the garagist wants to add new personalized features to this car.
         /// </summary>
         /// <param name="feature">The feature to be implemented</param>
         /// <remarks>

@@ -52,6 +52,28 @@ All the cars have a lot of attributes that need to be defined :
 > - Noise, a double with a public get and set
 > - Features, a list of CarFeature with a public get and set
 
+##### AddFeature
+
+A car can have some features, we can also add some of them.
+
+Willy the garagist wants to add new personalized features to this car.
+That's the point of this function.
+
+***Prototype***
+
+![img_8.png](img_8.png)
+
+##### RemoveFeature
+
+The car is too heavy because of all of those features.
+
+Willy the garagist wants to remove a feature from this car.
+Make a function to be able to remove one feature.
+
+***Prototype***
+
+![img_9.png](img_9.png)
+
 #### Gasoline.cs
 
 The class representing a gasoline car. Child of Car class.
@@ -62,7 +84,14 @@ The class representing a gasoline car. Child of Car class.
 
 ##### ToString
 
+***Prototype***
+
 ![img_2.png](img_2.png)
+
+***Code Example***
+
+![img_12.png](img_12.png)
+![img_13.png](img_13.png)
 
 #### Electrical.cs
 
@@ -74,7 +103,14 @@ The class representing an electrical car. Child of Car class.
 
 ##### ToString
 
+***Prototype***
+
 ![img_2.png](img_2.png)
+
+***Code Example***
+
+![img_10.png](img_10.png)
+![img_11.png](img_11.png)
 
 #### Garage.cs
 

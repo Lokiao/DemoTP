@@ -14,7 +14,13 @@ namespace AboutCars
 
         public override string ToString()
         {
-            throw new System.NotImplementedException();
+            string s = "";
+            s += $"This is the gasoline {Brand} {Model} {LicenseNumber}.\nIt can go up to {MaxSpeed}km/h, with an acceleration of {Acceleration}km/h/s.\n";
+            if (Noise >= 50)
+                s += "Also... it does make some noise...";
+            else
+                s += "And it's pretty silent!!!";
+            return s;
         }
     }
 }
