@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using System.Threading;
 
 namespace AboutCars
-{
+{   
     public abstract class Car : ICar
     {
         public string LicenseNumber { get; protected set; }
+        
+        public string Brand { get; protected set; }
+
+        public string Model { get; protected set; }
 
         public double MaxSpeed { get; protected set; }
         
         public double Acceleration { get; protected set; }
-        public string Brand { get; protected set; }
-
-        public string Model { get; protected set; }
 
         public double Speed { get; set; } = 0;
         public double Noise { get; set; }

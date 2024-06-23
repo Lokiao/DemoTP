@@ -2,14 +2,7 @@ using System;
 
 namespace AboutCars
 {
-    public enum Order
-    {
-        BM,         //brand and model
-        Speed,
-        Noise
-    }
-
-    public static class Garage
+    public class Garage : IGarage
     {
         /// <summary>
         /// Willy the garagist wants to be able to arrange his garage's cars.
@@ -28,7 +21,7 @@ namespace AboutCars
         /// When ordering by noise, make it in increasing order
         /// You can do auxiliary functions to help you out.
         /// </remarks>
-        public static Car[] Arrange(Car[] cars, Order order)
+        public Car[] Arrange(Car[] cars, Order order)
         {
             throw new NotImplementedException();
         }
@@ -49,7 +42,7 @@ namespace AboutCars
         /// We suppose that during a turn, each car goes at 80km/h (not gradually).
         /// After a turn, the speed of each gradually reaches their maximum speed (if possible).
         /// </remarks>
-        public static Car FindBestCar(Car[] cars, Track track)
+        public Car FindBestCar(Car[] cars, Track track)
         {
             throw new NotImplementedException();
         }

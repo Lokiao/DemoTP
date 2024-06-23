@@ -7,7 +7,7 @@ namespace AboutCars
     
         public static void Main(string[] args)
         {
-            Car c1 = new Gasoil("","","");
+            Car c1 = new Gasoline("","","");
             c1.Race();
             Console.WriteLine(c1.Model);
         }
