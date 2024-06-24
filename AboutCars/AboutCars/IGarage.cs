@@ -1,7 +1,10 @@
+using System.Collections.Generic;
+
 namespace AboutCars
 {
     public enum Order
     {
+        None,
         BM,         //brand and model
         Speed,
         Noise
@@ -9,7 +12,9 @@ namespace AboutCars
     
     public interface IGarage
     {
-        Car[] Arrange(Car[] cars, Order order);
-        Car FindBestCar(Car[] cars, Track track);
+        void Arrange(Order order);
+        Car FindBestCar(Track track);
+
+        string ToString();
     }
 }

@@ -91,6 +91,9 @@ The class representing a gasoline car. Child of Car class.
 ***Code Example***
 
 ![img_12.png](img_12.png)
+
+***Output***
+
 ![img_13.png](img_13.png)
 
 #### Electrical.cs
@@ -110,6 +113,9 @@ The class representing an electrical car. Child of Car class.
 ***Code Example***
 
 ![img_10.png](img_10.png)
+
+***Output***
+
 ![img_11.png](img_11.png)
 
 #### Garage.cs
@@ -117,8 +123,91 @@ The class representing an electrical car. Child of Car class.
 The class representing a garage, could be Willy's.
 Inherits of the interface IGarage.
 
+You should also define and initialize Cars, which is a public list of Car, the cars inside the garage.
+<br>As well as CurrentOrdering, a private Order initialized to None.
+
+Don't forget to define the ToString function.
+
 ***Prototype***
 
 ![img_4.png](img_4.png)
 
 ### Intermediate
+
+#### Garage.cs
+
+##### ToString
+
+Simply a function to print out the cars in the Garage.
+
+***Prototype***
+
+![img_18.png](img_18.png)
+
+***Code Example***
+
+***Output***
+
+*Remarks :*
+
+Use the Car ToString in this function.
+
+##### AddCar
+
+Willy the garagist just received a new car, and he wants to put it in his garage, but at the right place.
+
+***Prototype***
+
+![img_16.png](img_16.png)
+
+***Code Examples***
+
+*Remarks :*
+> Use CurrentOrdering to know where to insert the new car.<br>
+> If CurrentOrdering is None, simply add it at the end of the list.
+
+##### PopCar
+
+Willy the garagist is selling a car, go find it for him.
+
+***Prototype***
+
+![img_17.png](img_17.png)
+
+***Code Example***
+
+*Remarks :*
+
+>Use CurrentOrdering to know where to how to find the car quicker.
+>If CurrentOrdering is None, simply do a linear search.<br>
+>**Attention:** We will evaluate the speed of the program.
+
+##### Arrange
+
+Willy the garagist wants to be able to arrange his garage's cars.
+
+Sometimes he wants them to be ordered by brand and model name,
+sometimes by maximum speed or even by noisiness.
+
+Help him out to befriend him.
+
+***Prototype***
+
+![img_15.png](img_15.png)
+
+***Code Examples***
+
+*Remarks :*
+
+>- When ordering by brand and model, it should go from "A" to "Z"
+>- When ordering by speed, make it from fastest to lowest
+>- When ordering by noise, make it from most silent to most noisy
+>- Don't forget to update CurrentOrdering<br>
+>
+>You can do auxiliary functions to help you out.
+ 
+### Hard
+
+#### Car.cs
+
+##### 

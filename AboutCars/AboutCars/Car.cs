@@ -22,29 +22,6 @@ namespace AboutCars
         public List<CarFeature> Features { get; set; } = new List<CarFeature>();
 
         /// <summary>
-        /// Willy the garagist would like to estimate the time that this car would take to finish this track.
-        /// </summary>
-        /// <param name="track">The track where the race will happen</param>
-        /// <returns>
-        /// The time in seconds for the car to finish the track.
-        /// </returns>
-        /// <remarks>
-        /// Always round up the number, better to overestimate than to underestimate
-        /// </remarks>
-        public double TimeToFinish(Track track)
-        {
-            throw new NotImplementedException();
-        }
-        
-        /// <summary>
-        /// Simply a ToString function to implement in the children classes.
-        /// </summary>
-        /// <returns>
-        /// A string.
-        /// </returns>
-        public abstract override string ToString();
-        
-        /// <summary>
         /// Willy the garagist wants to add new personalized features to this car.
         /// </summary>
         /// <param name="feature">The feature to be implemented</param>
@@ -64,6 +41,29 @@ namespace AboutCars
         /// Check that it exists.
         /// </remarks>
         public void RemoveFeature(CarFeature feature)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Simply a ToString function to implement in the children classes.
+        /// </summary>
+        /// <returns>
+        /// A string.
+        /// </returns>
+        public abstract override string ToString();
+
+        /// <summary>
+        /// Willy the garagist would like to estimate the time that this car would take to finish this track.
+        /// </summary>
+        /// <param name="track">The track where the race will happen</param>
+        /// <returns>
+        /// The time in seconds for the car to finish the track.
+        /// </returns>
+        /// <remarks>
+        /// Always round up the number, better to overestimate than to underestimate
+        /// </remarks>
+        public double TimeToFinish(Track track)
         {
             throw new NotImplementedException();
         }
