@@ -5,7 +5,7 @@ namespace AboutCars
     public class Program
     {
     
-        public static void Main(string[] args)
+        public static void main(string[] args)
         {
             Car renault = new Gasoline("UN-423-IV", "Renault", "Twingo");
             Car hyundai = new Electrical("KR-132-DD", "Hyundai", "Grandeur");

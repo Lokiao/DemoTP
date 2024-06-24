@@ -285,8 +285,14 @@ Willy the garagist would like to estimate the time that this car would take to f
 
 *Remarks :*
 
->- For this algorithm, we suppose that when a car is turning, it goes at 120km/h. After a turn, the car gradually comes back at its maximum speed.
+>- For this algorithm, we suppose that when a car is turning, it goes at 120km/h (maximum). After a turn, the car gradually comes back at its maximum speed.
 >- You're supposed to overestimate the time that the car would do (if it takes 19.2 seconds, make it 20).
+
+*Advice :*
+
+> Do a loop that would count each second passing in the race and update the characteristics of the car accordingly.
+> 
+> Goodluck.
 
 #### Garage.cs
 
@@ -294,7 +300,6 @@ Willy the garagist would like to estimate the time that this car would take to f
 
 Willy the garagist now trusts you (if you did the previous functions well that is).
 <br>However, there will soon be an important race that he wants to win for sure.
-<br>All he knows is the length of the race and the number of non-negligible turns inside it.
 <br>He asks you to find the best car you can for this race.
 <br>If you do not mess this one up, you might be able to participate in some races with his cars.
 
