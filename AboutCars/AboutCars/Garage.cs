@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Net.NetworkInformation;
 
 namespace AboutCars
@@ -16,6 +17,101 @@ namespace AboutCars
             throw new NotImplementedException();
         }
 
+        public int IndexBySpeed(double speed)
+        {
+            int min = 0;
+            int max = Cars.Count - 1;
+            while (min <=max)
+            {
+                int mid = (min + max) / 2;
+                if (speed == Cars[mid].MaxSpeed)
+                {
+                    return --mid;
+                }
+                if (speed > Cars[mid].MaxSpeed)
+                {
+                    max = mid - 1;
+                }
+                else
+                {
+                    min = mid + 1;
+                }
+            }
+
+            return min;
+        }
+        
+        public int IndexByNoise(int noise)
+        {
+            int min = 0;
+            int max = Cars.Count - 1;
+            while (min <=max)
+            {
+                int mid = (min + max) / 2;
+                if (noise == Cars[mid].Noise)
+                {
+                    return --mid;
+                }
+                if (noise < Cars[mid].Noise)
+                {
+                    max = mid - 1;
+                }
+                else
+                {
+                    min = mid + 1;
+                }
+            }
+
+            return min;
+        }
+
+        private bool SupString(string s1, string s2)
+        {
+            int i = 0;
+            while (i < s1.Length && i < s2.Length)
+            {
+                if (s1[i] == s2[i])
+                    i++;
+                else
+                    return s1[i] > s2[i];
+            }
+
+            return i == s2.Length && i < s1.Length;
+        }
+
+        private int IndexByM(string model, int place, int notagain)
+        {
+            if (model == Cars[place].Model)
+                return ++place;
+            if (SupString(model, Cars[place].Model))
+            {
+                //if (brand == Cars[mid].Brand)
+            }
+        }
+        public int IndexByBM(string brand, string model)
+        {
+            int min = 0;
+            int max = Cars.Count - 1;
+            while (min <=max)
+            {
+                int mid = (min + max) / 2;
+                if (brand == Cars[mid].Brand)
+                {
+                    return --mid;
+                }
+                if (SupString(brand, Cars[mid].Brand))
+                {
+                    max = mid - 1;
+                }
+                else
+                {
+                    min = mid + 1;
+                }
+            }
+
+            return min;
+        }
+        
         /// <summary>
         /// Willy the garagist just received a new car, he wants to put it in his garage, but at the right place.
         /// </summary>
@@ -26,7 +122,10 @@ namespace AboutCars
         /// </remarks>
         public void AddCar(Car car)
         {
-            throw new NotImplementedException();
+            /*switch (expression)
+            {
+                
+            }*/
         }
 
         /// <summary>
@@ -68,9 +167,9 @@ namespace AboutCars
         }
 
         /// <summary>
-        /// Willy the garagist now trusts you (if you did the first function well that is).
+        /// Willy the garagist now trusts you (if you did the first functions well that is).
         /// However, there will soon be an important race that he wants to win for sure.
-        /// All he knows is the length of the race and the number of non-negligeable turns inside it.
+        /// All he knows is the length of the race and the number of non-negligible turns inside it.
         /// He asks you to find the best car you can for this race.
         /// If you do not mess this one up, you should be able to participate in some races with his cars.
         /// </summary>

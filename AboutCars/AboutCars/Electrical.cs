@@ -20,6 +20,16 @@ namespace AboutCars
                 s += "Also... it does make some noise...";
             else
                 s += "And it's pretty silent!!!";
+            if (Features.Count > 0)
+            {
+                s += $"\nEither way, this car has {Features.Count} features:\n";
+                int i = 1;
+                foreach (CarFeature feature in Features)
+                {
+                    s += $"   {i}. {feature.FeatureName} : {feature.FeatureDescription}\n";
+                    i++;
+                }
+            }
             return s;
         }
     }

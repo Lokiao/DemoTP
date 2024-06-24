@@ -17,9 +17,9 @@ namespace AboutCars
         public double Acceleration { get; protected set; }
 
         public double Speed { get; set; } = 0;
-        public double Noise { get; set; }
+        public int Noise { get; set; }
         
-        public List<CarFeature> Features { get; set; } = new List<CarFeature>();
+        public List<CarFeature> Features { get; } = new List<CarFeature>();
 
         /// <summary>
         /// Willy the garagist wants to add new personalized features to this car.
@@ -30,7 +30,9 @@ namespace AboutCars
         /// </remarks>
         public void AddFeature(CarFeature feature)
         {
-            throw new NotImplementedException();
+            if (Features.Contains(feature))
+                throw new Exception("Willy... I think this car has already this feature...");
+            Features.Add(feature);
         }
 
         /// <summary>
@@ -42,7 +44,9 @@ namespace AboutCars
         /// </remarks>
         public void RemoveFeature(CarFeature feature)
         {
-            throw new NotImplementedException();
+            if (!Features.Contains(feature))
+                throw new Exception("Willy, this car does not have this feature...");
+            Features.Remove(feature);
         }
 
         /// <summary>

@@ -49,8 +49,8 @@ All the cars have a lot of attributes that need to be defined :
 > - MaxSpeed, a double with a public get and protected set
 > - Acceleration, a double with a public get and protected set
 > - Speed, a double with a public get and set
-> - Noise, a double with a public get and set
-> - Features, a list of CarFeature with a public get and set
+> - Noise, an int with a public get and set
+> - Features, a list of CarFeature with a public get
 
 ##### AddFeature
 
@@ -63,6 +63,18 @@ That's the point of this function.
 
 ![img_8.png](img_8.png)
 
+***Code Examples***
+
+![img_21.png](img_21.png)
+
+***Output***
+
+![img_22.png](img_22.png)
+
+*Remarks :*
+
+Do not worry about the testing, it will be possible after doing the ToString function.
+
 ##### RemoveFeature
 
 The car is too heavy because of all of those features.
@@ -73,6 +85,18 @@ Make a function to be able to remove one feature.
 ***Prototype***
 
 ![img_9.png](img_9.png)
+
+***Code Examples***
+
+![img_23.png](img_23.png)
+
+***Output***
+
+![img_24.png](img_24.png)
+
+*Remarks :*
+
+Do not worry about the testing, it will be possible after doing the ToString function.
 
 #### Gasoline.cs
 
@@ -96,6 +120,11 @@ The class representing a gasoline car. Child of Car class.
 
 ![img_13.png](img_13.png)
 
+*Remarks :*
+
+A car having more than or equal to 50 is considered noisy.
+Also, if the car has features, you must show them (cf. AddFeature / RemoveFeature)
+
 #### Electrical.cs
 
 The class representing an electrical car. Child of Car class.
@@ -117,6 +146,11 @@ The class representing an electrical car. Child of Car class.
 ***Output***
 
 ![img_11.png](img_11.png)
+
+*Remarks :*
+
+A car having more than or equal to 50 is considered noisy.
+Also, if the car has features, you must show them (cf. AddFeature / RemoveFeature)
 
 #### Garage.cs
 
@@ -205,9 +239,49 @@ Help him out to befriend him.
 >- Don't forget to update CurrentOrdering<br>
 >
 >You can do auxiliary functions to help you out.
- 
+
 ### Hard
 
 #### Car.cs
 
-##### 
+##### TimeToFinish
+
+***Prototype***
+
+![img_20.png](img_20.png)
+
+***Code Example***
+
+
+
+***Output***
+
+
+
+*Remarks :*
+
+>- For this algorithm, we suppose that when a car is turning, it goes at 120km/h. After a turn, the car gradually comes back at its maximum speed.
+>- You're supposed to overestimate the time that the car would do (if it takes 19.2 seconds, make it 20).
+
+#### Garage.cs
+
+##### FindBestCar
+
+Willy the garagist now trusts you (if you did the first functions well that is).
+<br>However, there will soon be an important race that he wants to win for sure.
+<br>All he knows is the length of the race and the number of non-negligible turns inside it.
+<br>He asks you to find the best car you can for this race.
+<br>If you do not mess this one up, you might be able to participate in some races with his cars.
+
+***Prototype***
+
+![img_19.png](img_19.png)
+
+***Code Example***
+
+
+
+***Output***
+
+
+
