@@ -180,7 +180,11 @@ Simply a function to print out the cars in the Garage.
 
 ***Code Example***
 
+![img_25.png](img_25.png)
+
 ***Output***
+
+![img_26.png](img_26.png)
 
 *Remarks :*
 
@@ -194,27 +198,40 @@ Willy the garagist just received a new car, and he wants to put it in his garage
 
 ![img_16.png](img_16.png)
 
-***Code Examples***
+***Code Example***
+
+![img_25.png](img_25.png)
+
+***Output***
+
+![img_26.png](img_26.png)
 
 *Remarks :*
+
 > Use CurrentOrdering to know where to insert the new car.<br>
-> If CurrentOrdering is None, simply add it at the end of the list.
+> If CurrentOrdering is None, simply add it at the end of the list.<br>
+>- When ordered by brand and model, it goes from "A" to "Z"
+>- When ordered by speed, it is from fastest to lowest
+>- When ordered by noise, it is from most silent to noisiest
 
-##### PopCar
+>Do auxiliary functions to help you.<br>
+>**Attention:** We will evaluate the speed of the program.
 
-Willy the garagist is selling a car, go find it for him.
+##### RemoveCar
+
+Willy the garagist is selling a car, go take it out of the garage.
 
 ***Prototype***
 
-![img_17.png](img_17.png)
+![img_28.png](img_28.png)
 
 ***Code Example***
 
-*Remarks :*
+![img_27.png](img_27.png)
 
->Use CurrentOrdering to know where to how to find the car quicker.
->If CurrentOrdering is None, simply do a linear search.<br>
->**Attention:** We will evaluate the speed of the program.
+***Output***
+
+![img_29.png](img_29.png)
 
 ##### Arrange
 
@@ -231,11 +248,17 @@ Help him out to befriend him.
 
 ***Code Examples***
 
+![img_32.png](img_32.png)
+
+***Output***
+
+![img_31.png](img_31.png)
+
 *Remarks :*
 
 >- When ordering by brand and model, it should go from "A" to "Z"
 >- When ordering by speed, make it from fastest to lowest
->- When ordering by noise, make it from most silent to most noisy
+>- When ordering by noise, make it from most silent to noisiest
 >- Don't forget to update CurrentOrdering<br>
 >
 >You can do auxiliary functions to help you out.
@@ -245,6 +268,8 @@ Help him out to befriend him.
 #### Car.cs
 
 ##### TimeToFinish
+
+Willy the garagist would like to estimate the time that this car would take to finish this track.
 
 ***Prototype***
 
@@ -267,7 +292,7 @@ Help him out to befriend him.
 
 ##### FindBestCar
 
-Willy the garagist now trusts you (if you did the first functions well that is).
+Willy the garagist now trusts you (if you did the previous functions well that is).
 <br>However, there will soon be an important race that he wants to win for sure.
 <br>All he knows is the length of the race and the number of non-negligible turns inside it.
 <br>He asks you to find the best car you can for this race.

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
+using System.Linq;
 using System.Net.NetworkInformation;
 
 namespace AboutCars
@@ -14,10 +15,21 @@ namespace AboutCars
 
         public override string ToString()
         {
-            throw new NotImplementedException();
-        }
+            string s = "";
+            s += "This is Willy's garage.\n";
+            if (Cars.Count == 0)
+                s += "There are no cars here for the moment.";
+            else
+            {
+                s += $"The are {Cars.Count} cars in the garage. Please look here:\n\n";
+                foreach (Car car in Cars)
+                    s += "- " + car + "\n";
+            }
 
-        public int IndexBySpeed(double speed)
+            return s;
+        }
+        
+        private int IndexBySpeed(double speed)
         {
             int min = 0;
             int max = Cars.Count - 1;
@@ -26,7 +38,7 @@ namespace AboutCars
                 int mid = (min + max) / 2;
                 if (speed == Cars[mid].MaxSpeed)
                 {
-                    return --mid;
+                    return mid;
                 }
                 if (speed > Cars[mid].MaxSpeed)
                 {
@@ -41,7 +53,7 @@ namespace AboutCars
             return min;
         }
         
-        public int IndexByNoise(int noise)
+        private int IndexByNoise(int noise)
         {
             int min = 0;
             int max = Cars.Count - 1;
@@ -50,7 +62,7 @@ namespace AboutCars
                 int mid = (min + max) / 2;
                 if (noise == Cars[mid].Noise)
                 {
-                    return --mid;
+                    return mid;
                 }
                 if (noise < Cars[mid].Noise)
                 {
@@ -79,16 +91,30 @@ namespace AboutCars
             return i == s2.Length && i < s1.Length;
         }
 
-        private int IndexByM(string model, int place, int notagain)
+        private int IndexByM(string brand, string model, int place, int notAgain)
         {
             if (model == Cars[place].Model)
                 return ++place;
             if (SupString(model, Cars[place].Model))
             {
-                //if (brand == Cars[mid].Brand)
+                if (place + 1 == notAgain)
+                    return notAgain;
+                notAgain = place;
+                place++;
+                if (place < Cars.Count && brand == Cars[place].Brand)
+                    return IndexByM(brand, model, place, notAgain);
+                return place;
             }
+
+            if (place - 1 == notAgain)
+                return place;
+            notAgain = place;
+            place--;
+            if (place >= 0 && brand == Cars[place].Brand)
+                return IndexByM(brand, model, place, notAgain);
+            return place;
         }
-        public int IndexByBM(string brand, string model)
+        private int IndexByBM(string brand, string model)
         {
             int min = 0;
             int max = Cars.Count - 1;
@@ -97,7 +123,7 @@ namespace AboutCars
                 int mid = (min + max) / 2;
                 if (brand == Cars[mid].Brand)
                 {
-                    return --mid;
+                    return IndexByM(brand, model, mid, mid);
                 }
                 if (SupString(brand, Cars[mid].Brand))
                 {
@@ -122,29 +148,35 @@ namespace AboutCars
         /// </remarks>
         public void AddCar(Car car)
         {
-            /*switch (expression)
+            switch (CurrentOrdering)
             {
-                
-            }*/
-        }
-
-        /// <summary>
-        /// Willy the garagist is selling a car, go find it for him.
-        /// </summary>
-        /// <param name="car">The car to be found in the List Cars</param>
-        /// <returns>
-        /// The car inside Cars that is equivalent to the car wanted.
-        /// </returns>
-        /// <remarks>
-        /// Use CurrentOrdering to know where to how to find the car quicker.
-        /// If CurrentOrdering is None, simply do a linear search.
-        /// Attention: We will evaluate the speed of the program.
-        /// </remarks>
-        public Car PopCar(Car car)
-        {
-            throw new NetworkInformationException();
+                case Order.None:
+                    Cars.Add(car);
+                    break;
+                case Order.BM:
+                    Cars.Insert(IndexByBM(car.Brand, car.Model), car);
+                    break;
+                case Order.Speed:
+                    Cars.Insert(IndexBySpeed(car.MaxSpeed), car);
+                    break;
+                case Order.Noise:
+                    Cars.Insert(IndexByNoise(car.Noise), car);
+                    break;
+            }
         }
         
+        /// <summary>
+        /// Willy the garagist is selling a car, take it out of the garage.
+        /// </summary>
+        /// <param name="car">The car to be removed from the List Cars</param>
+        public void RemoveCar(Car car)
+        {
+            if (Cars.Contains(car))
+                Cars.Remove(car);
+            else
+                throw new Exception("We don't have the car anymore...");
+        }
+
         /// <summary>
         /// Willy the garagist wants to be able to arrange his garage's cars.
         /// Sometimes he wants them to be ordered by brand and model name,
@@ -161,9 +193,43 @@ namespace AboutCars
         /// When ordering by noise, make it in increasing order
         /// You can do auxiliary functions to help you out.
         /// </remarks>
-        public void Arrange(Order order)
+
+        private bool IsLess (Car c1, Car c2, Order order)
         {
-            throw new NotImplementedException();
+            switch (order)
+            {
+                case Order.None:
+                    return false;
+                case Order.BM:
+                    if (c1.Brand == c2.Brand)
+                        return !SupString(c1.Model, c2.Model);
+                    return !SupString(c1.Brand, c2.Brand);
+                case Order.Speed:
+                    return c1.MaxSpeed > c2.MaxSpeed;
+                case Order.Noise:
+                    return c1.Noise < c2.Noise;
+            }
+
+            return false;
+        }
+        
+        public void Arrange (Order order)
+        {
+            CurrentOrdering = order;
+            for (int i = 0; i < Cars.Count(); i++)
+            {
+                Car minC = Cars[i];
+                int minI = i;
+                for (int j = i + 1; j < Cars.Count(); j++)
+                {
+                    if (IsLess(Cars[j], minC, order))
+                    {
+                        minC = Cars[j];
+                        minI = j;
+                    }
+                }
+                (Cars[i], Cars[minI]) = (Cars[minI], Cars[i]);
+            }            
         }
 
         /// <summary>

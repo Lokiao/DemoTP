@@ -17,6 +17,7 @@ namespace AboutCars
         public double Acceleration { get; protected set; }
 
         public double Speed { get; set; } = 0;
+        
         public int Noise { get; set; }
         
         public List<CarFeature> Features { get; } = new List<CarFeature>();

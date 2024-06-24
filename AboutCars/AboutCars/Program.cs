@@ -15,16 +15,16 @@ namespace AboutCars
                 "The car has nice golden rims");
             renault.AddFeature(leather);
             renault.AddFeature(goldenRims);
-            Console.WriteLine(renault.ToString());
-            renault.RemoveFeature(leather);
-            Console.WriteLine(renault.ToString());
-            renault.RemoveFeature(leather);
+            //Console.WriteLine(renault.ToString());
+            //renault.RemoveFeature(leather);
+            //Console.WriteLine(renault.ToString());
+            //renault.RemoveFeature(leather);
 
             Garage Willys = new Garage();
             Willys.AddCar(renault);
             Willys.AddCar(hyundai);
+            Willys.Arrange(Order.Noise);
             Console.WriteLine(Willys.ToString());
-            
         }
     }
 }

@@ -12,6 +12,8 @@ namespace AboutCars
     
     public interface IGarage
     {
+        void AddCar(Car car);
+        void RemoveCar(Car car);
         void Arrange(Order order);
         Car FindBestCar(Track track);
 

@@ -2,14 +2,15 @@ namespace AboutCars
 {
     public class Track
     {
-        private int nbOfTurns;
-        
-        private double[] kmBtwEachTurn;
+        public int NbOfTurns { get; private set; }
+        public double[] LengthOfTurns { get; private set; } //len(LengthOfTurns) = NbOfTurns
+        public double[] KmBtwEachTurn { get; private set; } //len(LengthOfTurns) = NbOfTurns + 2 (start->first and last->finish)
 
-        public Track(int nbOfTurns, double[] kmBtwEachTurn)
+        public Track(int nbOfTurns, double[] lengthOfTurns, double[] kmBtwEachTurn)
         {
-            this.nbOfTurns = nbOfTurns;
-            this.kmBtwEachTurn = kmBtwEachTurn;
+            NbOfTurns = nbOfTurns;
+            LengthOfTurns = lengthOfTurns;
+            KmBtwEachTurn = kmBtwEachTurn;
         }
     }
     
